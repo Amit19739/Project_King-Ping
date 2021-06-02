@@ -68,6 +68,7 @@
     <Compile Include="Assets\Script\Enemy\Pig.cs" />
     <Compile Include="Assets\Script\Enemy\PigBase.cs" />
     <Compile Include="Assets\Script\Enemy\PigBase1.cs" />
+    <Compile Include="Assets\Script\HealthBar.cs" />
     <Compile Include="Assets\Script\Manager\SceneController.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerAnimation.cs" />

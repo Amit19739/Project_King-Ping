@@ -21,12 +21,20 @@ public class PlayerBasic : MonoBehaviour
 
     private bool playerIsOnGrounded = false;
     private bool resetJump = false;
-    private bool m_FacingRight = true;                  //For Flip player Left to Right or Right to left
+    private bool m_FacingRight = true;
+
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<PlayerAnimation>();
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -37,6 +45,11 @@ public class PlayerBasic : MonoBehaviour
         {
             PlayerAttack();
             playerAnim.Attack();
+        }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            TakeDamage(20);
         }
     }
 
@@ -111,6 +124,13 @@ public class PlayerBasic : MonoBehaviour
         {
             Debug.Log("we hit " + enemy.name);
         }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
     }
 
     public void OnDrawGizmosSelected()

@@ -12817,6 +12817,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1643895667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643895668}
+  m_Layer: 0
+  m_Name: GroundChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1643895668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643895667}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.005, y: -0.1397, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 610368918621679661}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1742659646
 GameObject:
   m_ObjectHideFlags: 0
@@ -14441,28 +14471,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &610368918621679656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610368918621679657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aa86876d5038b245b77a36de9dc3408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 5
-  speed: 3
-  attackPoint: {fileID: 610368918279282944}
-  attackRange: 0.65
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 1024
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &610368918621679657
 GameObject:
   m_ObjectHideFlags: 0
@@ -14474,8 +14482,8 @@ GameObject:
   - component: {fileID: 610368918621679661}
   - component: {fileID: 610368918621679658}
   - component: {fileID: 610368918621679659}
-  - component: {fileID: 610368918621679656}
   - component: {fileID: 610368918621679660}
+  - component: {fileID: 610368918621679662}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -14555,9 +14563,37 @@ Transform:
   m_Children:
   - {fileID: 610368918649766954}
   - {fileID: 519420032}
+  - {fileID: 1643895668}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610368918621679662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610368918621679657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6bd83919ce510409e5d7e9d7b0ad44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 5
+  speed: 2.5
+  attackRange: 0.5
+  radiusRange: 0.34
+  attackPoint: {fileID: 610368918279282944}
+  groundChecker: {fileID: 1643895668}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 512
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!4 &610368918649766954
 Transform:
   m_ObjectHideFlags: 0

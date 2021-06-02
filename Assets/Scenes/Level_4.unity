@@ -8911,15 +8911,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 6.5
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
   speed: 3
   attackPoint: {fileID: 154948321}
   attackRange: 0.4
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!61 &581419978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15046,7 +15046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1553624749
 Transform:
   m_ObjectHideFlags: 0

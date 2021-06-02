@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerBasic : MonoBehaviour
 {                                               
@@ -23,10 +24,15 @@ public class PlayerBasic : MonoBehaviour
     private bool resetJump = false;
     private bool m_FacingRight = true;
 
+    private int totalDiamond;
+
+    public int recoverHealth;
     public int maxHealth = 100;
     public int currentHealth;
 
     public HealthBar healthBar;
+
+    public Text diamondCountText;
 
     void Start()
     {
@@ -131,6 +137,26 @@ public class PlayerBasic : MonoBehaviour
         currentHealth -= damage;
 
         healthBar.SetHealth(currentHealth);
+    }
+
+    public void OnTriggerEnter2D(Collider2D pickUpObject)
+    {
+        if (pickUpObject.gameObject.CompareTag("PickUp"))
+        {
+            Debug.Log("Pickup");
+            totalDiamond += 1;
+            diamondCountText.text = totalDiamond.ToString();
+            Destroy(pickUpObject.gameObject);
+        }
+
+        if (pickUpObject.gameObject.CompareTag("HealthPickUp"))
+        {
+            Debug.Log("Hurrayyyy!!!");
+            currentHealth += 1;
+            currentHealth = currentHealth + recoverHealth;
+            healthBar.SetHealth(currentHealth);
+            Destroy(pickUpObject.gameObject);
+        }
     }
 
     public void OnDrawGizmosSelected()

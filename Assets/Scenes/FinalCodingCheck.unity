@@ -9706,7 +9706,7 @@ PrefabInstance:
     - target: {fileID: 1756200883670393555, guid: 3ce8c6e84f814f54dbf7918aedc2656e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.5
+      value: -5.13
       objectReference: {fileID: 0}
     - target: {fileID: 1756200883670393555, guid: 3ce8c6e84f814f54dbf7918aedc2656e,
         type: 3}
@@ -10978,7 +10978,7 @@ PrefabInstance:
     - target: {fileID: 1756200883670393555, guid: 3ce8c6e84f814f54dbf7918aedc2656e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.5
+      value: -5.19
       objectReference: {fileID: 0}
     - target: {fileID: 1756200883670393555, guid: 3ce8c6e84f814f54dbf7918aedc2656e,
         type: 3}
@@ -16443,6 +16443,16 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 965927544}
+    - target: {fileID: 3948566093016327954, guid: 7567ccaf6743ef244bc84f7aba833de5,
+        type: 3}
+      propertyPath: diamondCountText
+      value: 
+      objectReference: {fileID: 1776486555}
+    - target: {fileID: 3948566093016327954, guid: 7567ccaf6743ef244bc84f7aba833de5,
+        type: 3}
+      propertyPath: recoverHealth
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3948566093016327957, guid: 7567ccaf6743ef244bc84f7aba833de5,
         type: 3}
       propertyPath: m_Name

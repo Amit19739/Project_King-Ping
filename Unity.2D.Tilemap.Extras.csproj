@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{92A6D128-2055-366D-6BF1-9E082E2046E5}</ProjectGuid>
+    <ProjectGuid>{E9CC658B-F850-DB5B-3BD5-6DF81A73C081}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Tilemap.Extras</AssemblyName>
@@ -624,10 +624,10 @@
       <HintPath>C:/Program Files/2019.4.14f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>

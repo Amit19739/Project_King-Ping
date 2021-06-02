@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{84D05473-A1B1-C82A-714E-4E6BE370CD1A}</ProjectGuid>
+    <ProjectGuid>{6B6B8E74-2DEA-6843-B378-5F26A2F3B39C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Tilemap.Extras.Editor</AssemblyName>
@@ -289,7 +289,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/2019.4.14f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -646,24 +646,24 @@
       <HintPath>C:/Program Files/2019.4.14f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
-      <Project>{92A6D128-2055-366D-6BF1-9E082E2046E5}</Project>
+      <Project>{E9CC658B-F850-DB5B-3BD5-6DF81A73C081}</Project>
       <Name>Unity.2D.Tilemap.Extras</Name>
     </ProjectReference>
   </ItemGroup>

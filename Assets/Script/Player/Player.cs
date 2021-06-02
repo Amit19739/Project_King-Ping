@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private Rigidbody2D rb2d;                           //Reference of rigidbody
-    [SerializeField]
-    private float jumpForce = 5.0f;
-    [SerializeField]
-    private LayerMask groundLayer;                      //Reference of Layermask to check player is grouded 
-    [SerializeField]
-    private float speed = 2.5f;
+    private Rigidbody2D rb2d;                                               //Reference of rigidbody
+    [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] private float speed = 2.5f;
 
     private bool resetJump = false;
     private bool grounded = false;
@@ -20,8 +16,11 @@ public class Player : MonoBehaviour
     private SpriteRenderer playerSprite;
 
     public Transform attackPoint;
+
     public float attackRange = 0.5f;
+
     public LayerMask enemyLayers;
+    [SerializeField] private LayerMask groundLayer;                         //Reference of Layermask to check player is grouded 
 
     void Start()
     {

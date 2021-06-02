@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{55F2B641-F834-194C-1E3C-796E4A89E2F5}</ProjectGuid>
+    <ProjectGuid>{0AB5925F-68F4-DDF5-AD6D-764BAE8385D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -71,6 +71,7 @@
     <Compile Include="Assets\Script\Manager\SceneController.cs" />
     <Compile Include="Assets\Script\Player\Player.cs" />
     <Compile Include="Assets\Script\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Script\Player\PlayerBasic.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -600,100 +601,100 @@
       <HintPath>C:/Program Files/2019.4.14f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Runtime">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Path.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Triangle.Runtime">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="PsdPlugin">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Psdimporter.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.PixelPerfect">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Animation.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Common.Editor">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>E:/InternWork/Project_King/Project_KingIW/Project_KingGIW/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>E:/InternWork/Project_King/ProjectUnity_King/Project_King-Ping/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
-      <Project>{84D05473-A1B1-C82A-714E-4E6BE370CD1A}</Project>
+      <Project>{6B6B8E74-2DEA-6843-B378-5F26A2F3B39C}</Project>
       <Name>Unity.2D.Tilemap.Extras.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.csproj">
-      <Project>{92A6D128-2055-366D-6BF1-9E082E2046E5}</Project>
+      <Project>{E9CC658B-F850-DB5B-3BD5-6DF81A73C081}</Project>
       <Name>Unity.2D.Tilemap.Extras</Name>
     </ProjectReference>
   </ItemGroup>

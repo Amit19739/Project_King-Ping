@@ -16,9 +16,17 @@ public class EnemyBasic : MonoBehaviour
     public Transform colliderDetection;
     public LayerMask groundLayer;
 
+    private int maxHealth = 100;
+    private int currentHealth;
+
+    public HealthBar healthBar;
+
     void Start()
     {
         enemyAnimator = GetComponentInChildren<Animator>();
+
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update()
@@ -75,5 +83,29 @@ public class EnemyBasic : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, 0);
             facingLeft = true;
         }
+    }
+
+
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+
+        enemyAnimator.SetTrigger("Hit");
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemey Died");
+
+        enemyAnimator.SetBool("IsDead", true);
+        Destroy(gameObject,1f);
+        this.enabled = false;
     }
 }

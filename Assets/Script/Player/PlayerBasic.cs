@@ -31,6 +31,8 @@ public class PlayerBasic : MonoBehaviour
 
     GameUiManager gameUiManager;
 
+    public GameObject enemy;
+
     void Start()
     {
         gameUiManager = FindObjectOfType<GameUiManager>();
@@ -130,7 +132,10 @@ public class PlayerBasic : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("we hit " + enemy.name);
+            enemy.GetComponent<EnemyBasic>().TakeDamage(30);
         }
+
+        
     }
 
     void PlayerIsDead()

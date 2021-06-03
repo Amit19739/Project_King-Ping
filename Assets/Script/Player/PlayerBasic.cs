@@ -24,15 +24,10 @@ public class PlayerBasic : MonoBehaviour
     private bool resetJump = false;
     private bool m_FacingRight = true;
 
-    private int totalDiamond;
-
-    public int recoverHealth;
     public int maxHealth = 100;
     public int currentHealth;
 
     public HealthBar healthBar;
-
-    public Text diamondCountText;
 
     void Start()
     {
@@ -139,36 +134,11 @@ public class PlayerBasic : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
-    public void OnTriggerEnter2D(Collider2D pickUpObject)
-    {
-        if (pickUpObject.gameObject.CompareTag("PickUp"))
-        {
-            Debug.Log("Pickup");
-            totalDiamond += 1;
-            diamondCountText.text = totalDiamond.ToString();
-            Destroy(pickUpObject.gameObject);
-        }
-
-        if (pickUpObject.gameObject.CompareTag("HealthPickUp"))
-        {
-            Debug.Log("Hurrayyyy!!!");
-            currentHealth += 1;
-            currentHealth = currentHealth + recoverHealth;
-            healthBar.SetHealth(currentHealth);
-            Destroy(pickUpObject.gameObject);
-        }
-    }
-
     public void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-    }
-
-    public void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(groundChecker.position, radiusRange);
     }
 }

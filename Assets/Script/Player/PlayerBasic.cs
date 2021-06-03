@@ -29,10 +29,12 @@ public class PlayerBasic : MonoBehaviour
 
     public HealthBar healthBar;
 
-    //public int regainHealth;
+    GameUiManager gameUiManager;
 
     void Start()
     {
+        gameUiManager = FindObjectOfType<GameUiManager>();
+
         rb2d = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<PlayerAnimation>();
 
@@ -42,13 +44,14 @@ public class PlayerBasic : MonoBehaviour
 
     void Update()
     {
+        PlayerIsDead();
+
         Movement();
 
         if(currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
         }
-
 
         //Do attack and also play attack animation
         if (Input.GetMouseButtonDown(0) && isGrounded() == true)
@@ -118,14 +121,6 @@ public class PlayerBasic : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    IEnumerator ResetJump()
-    {
-        //Reset the jump of player after wait foe one sec
-        resetJump = true;
-        yield return new WaitForSeconds(0.1f);
-        resetJump = false;
-    }
-
 
     //When attack key down player do attack
     public void PlayerAttack()
@@ -138,6 +133,15 @@ public class PlayerBasic : MonoBehaviour
         }
     }
 
+    void PlayerIsDead()
+    {
+        if(currentHealth <= 0)
+        {
+            playerAnim.Death();
+            gameUiManager.gameOverMenu.SetActive(true);
+        }
+    }
+
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -146,31 +150,13 @@ public class PlayerBasic : MonoBehaviour
     }
 
 
-    //Regain Health when player heleth is lower than the current healt
-    public void OnTriggerEnter2D(Collider2D pickUp)
+    IEnumerator ResetJump()
     {
-        if (pickUp.gameObject.CompareTag("HealthPickUp"))
-        {
-            if (currentHealth < maxHealth)
-            {
-                currentHealth += 20;  //Recover 20 point when player hit this
-                //currentHealth = currentHealth + regainHealth;
-                healthBar.SetHealth(currentHealth);
-                Destroy(pickUp.gameObject);
-            }  
-        }
-
-        if (pickUp.gameObject.CompareTag("SmallHeart"))
-        {
-            if (currentHealth < maxHealth)
-            {
-                currentHealth += 10;    //Recover 10 point when player hit this
-                healthBar.SetHealth(currentHealth);
-                Destroy(pickUp.gameObject);
-            }
-        }
+        //Reset the jump of player after wait foe one sec
+        resetJump = true;
+        yield return new WaitForSeconds(0.1f);
+        resetJump = false;
     }
-
 
     // To see selected  Gizmo in the scene view and adjust the radius or value of selected object
     public void OnDrawGizmosSelected()

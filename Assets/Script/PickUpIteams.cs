@@ -7,13 +7,16 @@ public class PickUpIteams : MonoBehaviour
 {
     private int totalDiamond;
 
-    public int recoverHealth;
-
     public Text diamondCountText;
 
     public HealthBar healthBar;
 
-    PlayerBasic playerBasic;
+    PlayerBasic playerBasic;            //player script
+
+    private void Awake()
+    {
+        playerBasic = FindObjectOfType<PlayerBasic>();      //player script reference
+    }
 
     public void OnTriggerEnter2D(Collider2D pickUpIteams)
     {
@@ -25,14 +28,27 @@ public class PickUpIteams : MonoBehaviour
             Destroy(pickUpIteams.gameObject);
         }
 
-        //if (pickUpIteams.gameObject.CompareTag("HealthPickUp"))
-        //{
-        //    Debug.Log("Hurrayyyy!!!");
-        //    playerBasic.currentHealth++;
-        //    playerBasic.currentHealth = playerBasic.currentHealth + recoverHealth;
-        //    healthBar.SetHealth(playerBasic.currentHealth);
-        //    Destroy(pickUpIteams.gameObject);
-        //}
+
+        //Regain Health when player heleth is lower than the current healt
+        if (pickUpIteams.gameObject.CompareTag("HealthPickUp"))
+        {
+            if (playerBasic.currentHealth < playerBasic.maxHealth)
+            {
+                playerBasic.currentHealth += 20;  //Recover 20 point when player hit this
+                healthBar.SetHealth(playerBasic.currentHealth);
+                Destroy(pickUpIteams.gameObject);
+            }
+        }
+
+        if (pickUpIteams.gameObject.CompareTag("SmallHeart"))
+        {
+            if (playerBasic.currentHealth < playerBasic.maxHealth)
+            {
+                playerBasic.currentHealth += 10;    //Recover 10 point when player hit this
+                healthBar.SetHealth(playerBasic.currentHealth);
+                Destroy(pickUpIteams.gameObject);
+            }
+        }
     }
 
 }

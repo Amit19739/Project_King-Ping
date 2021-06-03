@@ -29,6 +29,8 @@ public class PlayerBasic : MonoBehaviour
 
     public HealthBar healthBar;
 
+    //public int regainHealth;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -42,7 +44,14 @@ public class PlayerBasic : MonoBehaviour
     {
         Movement();
 
-        if (Input.GetMouseButtonDown(0) && isGrounded() == true)                    //Attack input when the player is grounded
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+
+
+        //Do attack and also play attack animation
+        if (Input.GetMouseButtonDown(0) && isGrounded() == true)
         {
             PlayerAttack();
             playerAnim.Attack();
@@ -84,7 +93,7 @@ public class PlayerBasic : MonoBehaviour
 
     bool isGrounded()
     {
-        //check the player if is grounded with the help of Raycast 2d
+        //check the player is on ground or not
         playerIsOnGrounded = Physics2D.OverlapCircle(groundChecker.position, radiusRange, whatIsGround);
 
         if (playerIsOnGrounded == true)
@@ -117,6 +126,8 @@ public class PlayerBasic : MonoBehaviour
         resetJump = false;
     }
 
+
+    //When attack key down player do attack
     public void PlayerAttack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
@@ -134,6 +145,34 @@ public class PlayerBasic : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 
+
+    //Regain Health when player heleth is lower than the current healt
+    public void OnTriggerEnter2D(Collider2D pickUp)
+    {
+        if (pickUp.gameObject.CompareTag("HealthPickUp"))
+        {
+            if (currentHealth < maxHealth)
+            {
+                currentHealth += 20;  //Recover 20 point when player hit this
+                //currentHealth = currentHealth + regainHealth;
+                healthBar.SetHealth(currentHealth);
+                Destroy(pickUp.gameObject);
+            }  
+        }
+
+        if (pickUp.gameObject.CompareTag("SmallHeart"))
+        {
+            if (currentHealth < maxHealth)
+            {
+                currentHealth += 10;    //Recover 10 point when player hit this
+                healthBar.SetHealth(currentHealth);
+                Destroy(pickUp.gameObject);
+            }
+        }
+    }
+
+
+    // To see selected  Gizmo in the scene view and adjust the radius or value of selected object
     public void OnDrawGizmosSelected()
     {
         if (attackPoint == null)

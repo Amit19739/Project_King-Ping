@@ -25,14 +25,14 @@ public class PickUpIteams : MonoBehaviour
             Destroy(pickUpIteams.gameObject);
         }
 
-        if (pickUpIteams.gameObject.CompareTag("HealthPickUp"))
-        {
-            Debug.Log("Hurrayyyy!!!");
-            //playerBasic.currentHealth ++;
-            //playerBasic.currentHealth = playerBasic.currentHealth + recoverHealth;
-            //playerBasic.healthBar.SetHealth(playerBasic.currentHealth);
-            Destroy(pickUpIteams.gameObject);
-        }
+        //if (pickUpIteams.gameObject.CompareTag("HealthPickUp"))
+        //{
+        //    Debug.Log("Hurrayyyy!!!");
+        //    playerBasic.currentHealth++;
+        //    playerBasic.currentHealth = playerBasic.currentHealth + recoverHealth;
+        //    healthBar.SetHealth(playerBasic.currentHealth);
+        //    Destroy(pickUpIteams.gameObject);
+        //}
     }
 
 }

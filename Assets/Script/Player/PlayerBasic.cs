@@ -46,8 +46,6 @@ public class PlayerBasic : MonoBehaviour
 
     void Update()
     {
-        PlayerIsDead();
-
         Movement();
 
         if(currentHealth > maxHealth)
@@ -138,20 +136,19 @@ public class PlayerBasic : MonoBehaviour
         
     }
 
-    void PlayerIsDead()
-    {
-        if(currentHealth <= 0)
-        {
-            playerAnim.Death();
-            gameUiManager.gameOverMenu.SetActive(true);
-        }
-    }
-
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         healthBar.SetHealth(currentHealth);
+
+        playerAnim.Hit();
+
+        if (currentHealth <= 0)
+        {
+            playerAnim.Death();
+            gameUiManager.gameOverMenu.SetActive(true);
+            this.enabled = false;
+        }
     }
 
 

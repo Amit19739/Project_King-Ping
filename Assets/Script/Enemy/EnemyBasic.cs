@@ -103,7 +103,6 @@ public class EnemyBasic : MonoBehaviour
     void Die()
     {
         Debug.Log("Enemey Died");
-
         enemyAnimator.SetBool("IsDead", true);
         Destroy(gameObject,1f);
         this.enabled = false;

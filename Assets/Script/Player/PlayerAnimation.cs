@@ -26,8 +26,13 @@ public class PlayerAnimation : MonoBehaviour
         anim.SetTrigger("Attack");
     }
 
+    public void Hit()
+    {
+        anim.SetTrigger("Hit");
+    }
+
     public void Death()
     {
-        anim.SetTrigger("Death");
+        anim.SetBool("Death", true);
     }
 }

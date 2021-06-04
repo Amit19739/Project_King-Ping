@@ -89,6 +89,12 @@ public class PlayerBasic : MonoBehaviour
             playerAnim.Jump(true);
         }
 
+        if(isGrounded() == false)
+        {
+            Debug.Log("IS GROUNDED FALSE");
+            playerAnim.Jump(true);
+        }
+
         rb2d.velocity = new Vector2(horizontalMove * speed, rb2d.velocity.y);       //current velocity = new velocity
 
         playerAnim.Move(horizontalMove);
@@ -146,7 +152,7 @@ public class PlayerBasic : MonoBehaviour
         if (currentHealth <= 0)
         {
             playerAnim.Death();
-            gameUiManager.gameOverMenu.SetActive(true);
+            gameUiManager.gameOverMenu.SetActive(false);
             this.enabled = false;
         }
     }

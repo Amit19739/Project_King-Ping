@@ -18,6 +18,7 @@ public class EnemyBasic : MonoBehaviour
     public LayerMask groundLayer;
 
     public float circleRange;
+    public float attackRange;
 
     private int maxHealth = 100;
     private int currentHealth;
@@ -26,7 +27,7 @@ public class EnemyBasic : MonoBehaviour
 
     public LayerMask playerLayer;
 
-    private bool playerOnTop;
+    //private bool playerOnTop;
 
     void Start()
     {
@@ -61,19 +62,30 @@ public class EnemyBasic : MonoBehaviour
         }
 
         //check the player is on enemy or not if yes then take damage
-        playerOnTop = Physics2D.OverlapCircle(playerDetection.position, circleRange, playerLayer);
+        //playerOnTop = Physics2D.OverlapCircle(playerDetection.position, circleRange, playerLayer);
+        //{
+        //    if (playerOnTop == true)
+        //    {
+        //        Debug.Log("Player on top");
+        //        EnemyTakeDamage(100);
+        //        playerOnTop = false;
+        //    }
+        //}
+
+        RaycastHit2D playerOnTop = Physics2D.Raycast(playerDetection.position, Vector2.up, 0.5f, playerLayer);
+        Debug.DrawRay(playerDetection.position, Vector2.up, Color.red);
         {
-            if (playerOnTop == true)
+            if (playerOnTop.collider != null)
             {
                 Debug.Log("Player on top");
-                TakeDamage(100);
-                playerOnTop = false;
+                EnemyTakeDamage(100);
             }
         }
 
+
+
         //check for walls
         leftWall = Physics2D.Raycast(colliderDetection.position, Vector2.left, 0.5f, groundLayer);
-        Debug.DrawRay(colliderDetection.position, Vector2.left, Color.green);
         if (leftWall.collider != null)
         {
             enemyAnimator.SetTrigger("Idle");
@@ -81,37 +93,57 @@ public class EnemyBasic : MonoBehaviour
         }
 
         rightWall = Physics2D.Raycast(colliderDetection.position, Vector2.right, 0.5f, groundLayer);
-        Debug.DrawRay(colliderDetection.position, Vector2.right, Color.blue);
         if (rightWall.collider != null)
         {
             enemyAnimator.SetTrigger("Idle");
             Flip();
         }
 
-        RaycastHit2D playerInfo = Physics2D.Raycast(colliderDetection.position, Vector2.left, 2f, playerLayer);
+
+        //Detect player and then follow
+        RaycastHit2D playerInfo = Physics2D.Raycast(colliderDetection.position, colliderDetection.right , 0.5f, playerLayer);
+        Debug.DrawRay(colliderDetection.position, colliderDetection.right, Color.yellow);
         if (playerInfo.collider != null)
         {
             Debug.Log("Player Hit!!!!!");
+            enemyAnimator.SetTrigger("Attack");
+            EnemyAttack();
+        }
+    }
+
+
+    void EnemyAttack()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(colliderDetection.position, attackRange, playerLayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+            Debug.Log("we hit " + player.name);
+            player.GetComponent<PlayerBasic>().TakeDamage(20);
         }
     }
 
     public void Flip()
     {
-        if(facingLeft == true)
-        {
-            transform.eulerAngles = new Vector3(0, -180, 0);
-            facingLeft = false;
-        }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            facingLeft = true;
-        }
+        //if(facingLeft == true)
+        //{
+        //    transform.eulerAngles = new Vector3(0, -180, 0);
+        //    facingLeft = false;
+        //}
+        //else
+        //{
+        //    transform.eulerAngles = new Vector3(0, 0, 0);
+        //    facingLeft = true;
+        //}
+
+        facingLeft = !facingLeft;
+        transform.Rotate(0, 180, 0);
+            
     }
 
 
 
-    public void TakeDamage(int damage)
+    public void EnemyTakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
@@ -134,6 +166,7 @@ public class EnemyBasic : MonoBehaviour
 
     public void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(playerDetection.position, circleRange);
+        //Gizmos.DrawWireSphere(playerDetection.position, circleRange);
+        Gizmos.DrawWireSphere(colliderDetection.position, attackRange);
     }
 }

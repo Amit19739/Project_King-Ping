@@ -31,7 +31,7 @@ public class PlayerBasic : MonoBehaviour
 
     GameUiManager gameUiManager;
 
-    public GameObject enemy;
+    //public GameObject enemy;
 
     void Start()
     {
@@ -136,13 +136,14 @@ public class PlayerBasic : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("we hit " + enemy.name);
-            enemy.GetComponent<EnemyBasic>().TakeDamage(50);
+            enemy.GetComponent<EnemyBasic>().EnemyTakeDamage(50);
+            //enemy.GetComponent<EnemyBasic1>().EnemyTakeDamage1(50);
         }
 
         
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);

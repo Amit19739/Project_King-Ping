@@ -14,12 +14,19 @@ public class EnemyBasic : MonoBehaviour
     private Animator enemyAnimator;
 
     public Transform colliderDetection;
+    public Transform playerDetection;
     public LayerMask groundLayer;
+
+    public float circleRange;
 
     private int maxHealth = 100;
     private int currentHealth;
 
     public HealthBar healthBar;
+
+    public LayerMask playerLayer;
+
+    private bool playerOnTop;
 
     void Start()
     {
@@ -53,6 +60,17 @@ public class EnemyBasic : MonoBehaviour
             Flip();
         }
 
+        //check the player is on enemy or not if yes then take damage
+        playerOnTop = Physics2D.OverlapCircle(playerDetection.position, circleRange, playerLayer);
+        {
+            if (playerOnTop == true)
+            {
+                Debug.Log("Player on top");
+                TakeDamage(100);
+                playerOnTop = false;
+            }
+        }
+
         //check for walls
         leftWall = Physics2D.Raycast(colliderDetection.position, Vector2.left, 0.5f, groundLayer);
         Debug.DrawRay(colliderDetection.position, Vector2.left, Color.green);
@@ -68,6 +86,12 @@ public class EnemyBasic : MonoBehaviour
         {
             enemyAnimator.SetTrigger("Idle");
             Flip();
+        }
+
+        RaycastHit2D playerInfo = Physics2D.Raycast(colliderDetection.position, Vector2.left, 2f, playerLayer);
+        if (playerInfo.collider != null)
+        {
+            Debug.Log("Player Hit!!!!!");
         }
     }
 
@@ -106,5 +130,10 @@ public class EnemyBasic : MonoBehaviour
         enemyAnimator.SetBool("IsDead", true);
         Destroy(gameObject,1f);
         this.enabled = false;
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(playerDetection.position, circleRange);
     }
 }

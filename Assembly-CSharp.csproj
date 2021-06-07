@@ -64,12 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script-Other\Enemy.cs" />
+    <Compile Include="Assets\Script-Other\EnemyBasic.cs" />
     <Compile Include="Assets\Script-Other\Pig.cs" />
     <Compile Include="Assets\Script-Other\PigBase.cs" />
     <Compile Include="Assets\Script-Other\PigBase1.cs" />
     <Compile Include="Assets\Script-Other\Player.cs" />
-    <Compile Include="Assets\Script\Enemy\EnemyBasic.cs" />
-    <Compile Include="Assets\Script\Enemy\EnemyBasic1.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyBasicMovement.cs" />
     <Compile Include="Assets\Script\GameUiManager.cs" />
     <Compile Include="Assets\Script\HealthBar.cs" />
     <Compile Include="Assets\Script\Manager\SceneController.cs" />

@@ -9,6 +9,9 @@ public class PlayerBasic : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float attackRange;
     [SerializeField] private float radiusRange;
+    private float nextAttackTime = 0f;
+
+    public float attackRate;
 
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Transform groundChecker;
@@ -22,7 +25,7 @@ public class PlayerBasic : MonoBehaviour
 
     private bool playerIsOnGrounded = false;
     private bool resetJump = false;
-    private bool m_FacingRight = true;
+    public bool p_FacingRight = true;
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -30,12 +33,12 @@ public class PlayerBasic : MonoBehaviour
     public HealthBar healthBar;
 
     GameUiManager gameUiManager;
-
-    //public GameObject enemy;
+    EnemyBasicMovement enemyBasicMovement;
 
     void Start()
     {
         gameUiManager = FindObjectOfType<GameUiManager>();
+        enemyBasicMovement = FindObjectOfType<EnemyBasicMovement>();
 
         rb2d = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<PlayerAnimation>();
@@ -54,11 +57,17 @@ public class PlayerBasic : MonoBehaviour
         }
 
         //Do attack and also play attack animation
-        if (Input.GetMouseButtonDown(0) && isGrounded() == true)
+
+        if(Time.time >= nextAttackTime)
         {
-            PlayerAttack();
-            playerAnim.Attack();
+            if (Input.GetMouseButtonDown(0) && isGrounded() == true)
+            {
+                PlayerAttack();
+                playerAnim.Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
+
 
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -72,11 +81,11 @@ public class PlayerBasic : MonoBehaviour
 
         playerIsOnGrounded = isGrounded();
 
-        if (horizontalMove > 0 && !m_FacingRight)
+        if (horizontalMove > 0 && !p_FacingRight)
         {
             Flip();
         }
-        else if (horizontalMove < 0 && m_FacingRight)
+        else if (horizontalMove < 0 && p_FacingRight)
         {
             Flip();
         }
@@ -119,7 +128,7 @@ public class PlayerBasic : MonoBehaviour
     private void Flip()
     {
         // Switch the way the player is labelled as facing.
-        m_FacingRight = !m_FacingRight;
+        p_FacingRight = !p_FacingRight;
 
         // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
@@ -136,11 +145,9 @@ public class PlayerBasic : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("we hit " + enemy.name);
-            enemy.GetComponent<EnemyBasic>().EnemyTakeDamage(50);
-            //enemy.GetComponent<EnemyBasic1>().EnemyTakeDamage1(50);
-        }
-
-        
+            enemyBasicMovement.HammerAttackDirection();
+            enemy.GetComponent<EnemyBasicMovement>().EnemyTakeDamage(20);
+        } 
     }
 
     public void TakeDamage(int damage)
@@ -161,7 +168,7 @@ public class PlayerBasic : MonoBehaviour
 
     IEnumerator ResetJump()
     {
-        //Reset the jump of player after wait foe one sec
+        //Reset the jump of player after wait for one sec
         resetJump = true;
         yield return new WaitForSeconds(0.1f);
         resetJump = false;

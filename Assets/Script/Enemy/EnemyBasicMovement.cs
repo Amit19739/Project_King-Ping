@@ -9,12 +9,17 @@ public class EnemyBasicMovement : MonoBehaviour
 
     [SerializeField] private float enemySpeed;
     [SerializeField] private float attackRange;
-    [SerializeField] private float launchPower;
+    //[SerializeField] private float launchPower;
+    //private float dazeTime;
+    //public float startDazeTime;
+
+    //private Rigidbody2D enemyRb;
 
     private bool e_facingRight= true;
     private bool waitBeforeFlip = false;
 
     private Animator enemyAnimator;
+
 
     public Transform ledgewallDetection;
     public Transform playerDetection;
@@ -24,19 +29,17 @@ public class EnemyBasicMovement : MonoBehaviour
 
     private int maxHealth = 100;
     private int currentHealth;
-    private int launchDirection;
 
     public HealthBar healthBar;
 
     PlayerBasic playerBasic;
 
-    //public GameObject player;
-    //public GameObject enemy;
-
     void Start()
     {
         playerBasic = FindObjectOfType<PlayerBasic>();
 
+
+        //enemyRb = GetComponent<Rigidbody2D>();
         enemyAnimator = GetComponentInChildren<Animator>();
 
         currentHealth = maxHealth;
@@ -50,13 +53,28 @@ public class EnemyBasicMovement : MonoBehaviour
             return;
         }
 
+        //if(dazeTime <= 0)
+        //{
+        //    enemySpeed = 1.5f;
+        //}
+        //else
+        //{
+        //    enemySpeed = 0;
+        //    dazeTime -= Time.deltaTime;
+        //}
+
         EnemyMovement();
+    }
+
+    private void FixedUpdate()
+    {
+        //hitPower = enemyRb.AddForce(Vector2.right * launchPower);
     }
 
     void EnemyMovement()
     {
         //Enemy Move Right
-        //transform.Translate(Vector2.right * enemySpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * enemySpeed * Time.deltaTime);
 
         //Check for ledges
         RaycastHit2D groundInfo = Physics2D.Raycast(ledgewallDetection.position, Vector2.down, 1f, groundLayer);
@@ -108,11 +126,13 @@ public class EnemyBasicMovement : MonoBehaviour
 
     public void EnemyTakeDamage(int damage)
     {
+        //dazeTime = startDazeTime;
+
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
         enemyAnimator.SetTrigger("Hit");
-        
+  
         if(currentHealth <= 0)
         {
             Die();
@@ -131,34 +151,31 @@ public class EnemyBasicMovement : MonoBehaviour
 
     public void HammerAttackDirection()
     {
-        //if(player.transform.position.x < enemy.transform.position.x)
-        //{
-        //    attackDirection = AttackDirection.left;
-        //    Debug.Log("Attack From Left");
-        //}
-        //else
-        //{
-        //    attackDirection = AttackDirection.right;
-        //    Debug.Log("Attack From right");
-        //}
-
         if(playerBasic.p_FacingRight == true && e_facingRight == true)
         {
+            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
+            //enemyRb.AddForce(transform.up * launchPower + transform.right * launchPower);
             attackDirection = AttackDirection.left;
             Debug.Log("Attack From left");
         }
         else if (playerBasic.p_FacingRight == true && e_facingRight == false)
         {
+            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
+            //enemyRb.velocity.x;
+            //transform.Translate(Vector2.right * launchPower * Time.deltaTime);
+            //enemyRb.AddForce(transform.up * launchPower + transform.right * launchPower);
             attackDirection = AttackDirection.left;
             Debug.Log("Attack From left");
         }
         else if (playerBasic.p_FacingRight == false && e_facingRight == false)
         {
+            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
             attackDirection = AttackDirection.right;
             Debug.Log("Attack From right");
         }
         else if (playerBasic.p_FacingRight == false && e_facingRight == true)
         {
+            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
             attackDirection = AttackDirection.right;
             Debug.Log("Attack From right");
         }

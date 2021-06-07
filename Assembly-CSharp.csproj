@@ -73,9 +73,12 @@
     <Compile Include="Assets\Script\GameUiManager.cs" />
     <Compile Include="Assets\Script\HealthBar.cs" />
     <Compile Include="Assets\Script\Manager\SceneController.cs" />
+    <Compile Include="Assets\Script\MovingPlateform.cs" />
     <Compile Include="Assets\Script\PickUpIteams.cs" />
+    <Compile Include="Assets\Script\Platform.cs" />
     <Compile Include="Assets\Script\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Script\Player\PlayerBasic.cs" />
+    <Compile Include="Assets\Script\PlayerFeet.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/2019.4.14f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

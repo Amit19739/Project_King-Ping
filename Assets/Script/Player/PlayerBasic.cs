@@ -109,7 +109,7 @@ public class PlayerBasic : MonoBehaviour
         playerAnim.Move(horizontalMove);
     }
 
-    bool isGrounded()
+    public bool isGrounded()
     {
         //check the player is on ground or not
         playerIsOnGrounded = Physics2D.OverlapCircle(groundChecker.position, radiusRange, whatIsGround);
@@ -145,7 +145,7 @@ public class PlayerBasic : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("we hit " + enemy.name);
-            enemyBasicMovement.HammerAttackDirection();
+            //enemyBasicMovement.HammerAttackDirection();
             enemy.GetComponent<EnemyBasicMovement>().EnemyTakeDamage(20);
         } 
     }

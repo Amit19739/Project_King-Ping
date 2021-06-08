@@ -6,17 +6,20 @@ public class DoorManager : MonoBehaviour
 {
     private Animator doorAnim;
 
-    PickUpIteams pickUpIteams;
+    public SpriteRenderer spriteRendrer;
 
-    PlayerAnimation playerAnim;
+    PickUpIteams pickUpIteams;
+    PlayerBasic playerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         doorAnim = GetComponent<Animator>();
 
+        //spriteRendrer = GetComponentInChildren<SpriteRenderer>();
+
         pickUpIteams = FindObjectOfType<PickUpIteams>();
-        playerAnim = FindObjectOfType<PlayerAnimation>();
+        playerScript = FindObjectOfType<PlayerBasic>();
     }
 
     // Update is called once per frame
@@ -27,14 +30,14 @@ public class DoorManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(pickUpIteams.key == 1)
+        if(pickUpIteams.key >= 1)
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                Debug.Log("1 2 3 4 yaaaaaaaaaaaaaaaaaa!!!!!!!!!!");
                 OpenDoor();
                 pickUpIteams.key = 0;
-                playerAnim.OpenDoor();
+                spriteRendrer.color = Color.green;
+                playerScript.HappenWhenDoorIn();
             }
         }
         Debug.Log("Key No");

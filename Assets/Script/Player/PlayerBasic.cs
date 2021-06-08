@@ -163,6 +163,13 @@ public class PlayerBasic : MonoBehaviour
         }
     }
 
+    public void HappenWhenDoorIn()
+    {
+        playerAnim.OpenDoor();
+        this.enabled = false;
+        rb2d.velocity = new Vector2(0f * speed, rb2d.velocity.y);
+    }
+
 
     IEnumerator ResetJump()
     {

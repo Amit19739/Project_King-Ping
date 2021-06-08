@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Script-Other\EnemyBasicMovement_V1.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBasicMovement.cs" />
+    <Compile Include="Assets\Script\Manager\DoorManager.cs" />
     <Compile Include="Assets\Script-Other\Pig.cs" />
     <Compile Include="Assets\Script-Other\Player.cs" />
     <Compile Include="Assets\Script\Manager\GameUiManager.cs" />
@@ -76,7 +77,6 @@
     <Compile Include="Assets\Script-Other\PlayerFeet.cs" />
     <Compile Include="Assets\Script-Other\Platform.cs" />
     <Compile Include="Assets\Script-Other\PigBase1.cs" />
-    <Compile Include="Assets\Script\Manager\DoorManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

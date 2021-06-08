@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PickUpIteams : MonoBehaviour
 {
-    private int totalDiamond;
+    [SerializeField] private int totalDiamond;
 
     public int key;
 

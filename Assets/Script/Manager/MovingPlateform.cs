@@ -8,7 +8,6 @@ public class MovingPlateform : MonoBehaviour
     public Transform startPosition,endPosition;
     public Transform startingPoint;
 
-    public Vector3 velocity;
     private Vector3 nextPosition;
 
 

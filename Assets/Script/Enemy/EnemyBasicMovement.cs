@@ -54,7 +54,7 @@ public class EnemyBasicMovement : MonoBehaviour
     void EnemyMovement()
     {
         //Enemy Move Right
-        //transform.Translate(Vector2.right * enemySpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * enemySpeed * Time.deltaTime);
 
         //Check for ledges
         RaycastHit2D groundInfo = Physics2D.Raycast(ledgewallDetection.position, Vector2.down, 1f, groundLayer);

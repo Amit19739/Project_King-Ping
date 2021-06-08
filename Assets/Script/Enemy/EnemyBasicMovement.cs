@@ -9,14 +9,11 @@ public class EnemyBasicMovement : MonoBehaviour
 
     [SerializeField] private float enemySpeed;
     [SerializeField] private float attackRange;
-    //[SerializeField] private float launchPower;
-    //private float dazeTime;
-    //public float startDazeTime;
-
-    //private Rigidbody2D enemyRb;
+    [SerializeField] private float playerDetectionRange;
 
     private bool e_facingRight= true;
     private bool waitBeforeFlip = false;
+    private bool playerOnTop;
 
     private Animator enemyAnimator;
 
@@ -38,8 +35,6 @@ public class EnemyBasicMovement : MonoBehaviour
     {
         playerBasic = FindObjectOfType<PlayerBasic>();
 
-
-        //enemyRb = GetComponent<Rigidbody2D>();
         enemyAnimator = GetComponentInChildren<Animator>();
 
         currentHealth = maxHealth;
@@ -53,22 +48,7 @@ public class EnemyBasicMovement : MonoBehaviour
             return;
         }
 
-        //if(dazeTime <= 0)
-        //{
-        //    enemySpeed = 1.5f;
-        //}
-        //else
-        //{
-        //    enemySpeed = 0;
-        //    dazeTime -= Time.deltaTime;
-        //}
-
         EnemyMovement();
-    }
-
-    private void FixedUpdate()
-    {
-        //hitPower = enemyRb.AddForce(Vector2.right * launchPower);
     }
 
     void EnemyMovement()
@@ -95,13 +75,13 @@ public class EnemyBasicMovement : MonoBehaviour
         }
 
         //check player on top
-        RaycastHit2D playerOnTop = Physics2D.Raycast(playerDetection.position, Vector2.up, 0.5f, playerLayer);
-        Debug.DrawRay(playerDetection.position, Vector2.up, Color.red);
+        playerOnTop = Physics2D.OverlapCircle(playerDetection.position, playerDetectionRange, playerLayer);
         {
-            if (playerOnTop.collider != null)
+            if (playerOnTop == true)
             {
                 Debug.Log("Player on top");
                 EnemyTakeDamage(100);
+                playerOnTop = false;
             }
         }
     }
@@ -126,8 +106,6 @@ public class EnemyBasicMovement : MonoBehaviour
 
     public void EnemyTakeDamage(int damage)
     {
-        //dazeTime = startDazeTime;
-
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
 
@@ -145,7 +123,7 @@ public class EnemyBasicMovement : MonoBehaviour
         enemyAnimator.SetBool("IsDead", true);
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GetComponent<BoxCollider2D>().enabled = false;
-        Destroy(gameObject,1f);
+        Destroy(gameObject,1.5f);
         this.enabled = false;
     }
 
@@ -153,29 +131,21 @@ public class EnemyBasicMovement : MonoBehaviour
     {
         if(playerBasic.p_FacingRight == true && e_facingRight == true)
         {
-            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
-            //enemyRb.AddForce(transform.up * launchPower + transform.right * launchPower);
             attackDirection = AttackDirection.left;
             Debug.Log("Attack From left");
         }
         else if (playerBasic.p_FacingRight == true && e_facingRight == false)
         {
-            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
-            //enemyRb.velocity.x;
-            //transform.Translate(Vector2.right * launchPower * Time.deltaTime);
-            //enemyRb.AddForce(transform.up * launchPower + transform.right * launchPower);
             attackDirection = AttackDirection.left;
             Debug.Log("Attack From left");
         }
         else if (playerBasic.p_FacingRight == false && e_facingRight == false)
         {
-            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
             attackDirection = AttackDirection.right;
             Debug.Log("Attack From right");
         }
         else if (playerBasic.p_FacingRight == false && e_facingRight == true)
         {
-            //enemyRb.AddForce(Vector2.right * launchPower, ForceMode2D.Impulse);
             attackDirection = AttackDirection.right;
             Debug.Log("Attack From right");
         }
@@ -192,5 +162,6 @@ public class EnemyBasicMovement : MonoBehaviour
     public void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(ledgewallDetection.position, attackRange);
+        Gizmos.DrawWireSphere(playerDetection.position, playerDetectionRange);
     }
 }

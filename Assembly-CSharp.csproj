@@ -47,7 +47,7 @@
   <PropertyGroup>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
-    <UnityProjectGeneratorVersion>2.0.8</UnityProjectGeneratorVersion>
+    <UnityProjectGeneratorVersion>2.0.9</UnityProjectGeneratorVersion>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.1.10f1</UnityVersion>
@@ -59,22 +59,24 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script-Other\EnemyBasicMovement_V1.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBasicMovement.cs" />
     <Compile Include="Assets\Script-Other\Pig.cs" />
     <Compile Include="Assets\Script-Other\Player.cs" />
-    <Compile Include="Assets\Script\GameUiManager.cs" />
+    <Compile Include="Assets\Script\Manager\GameUiManager.cs" />
     <Compile Include="Assets\Script\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Script-Other\Enemy.cs" />
     <Compile Include="Assets\Script-Other\PigBase.cs" />
     <Compile Include="Assets\Script\Manager\SceneController.cs" />
     <Compile Include="Assets\Script-Other\EnemyBasic.cs" />
-    <Compile Include="Assets\Script\HealthBar.cs" />
-    <Compile Include="Assets\Script\PickUpIteams.cs" />
+    <Compile Include="Assets\Script\Manager\HealthBar.cs" />
+    <Compile Include="Assets\Script\Manager\PickUpIteams.cs" />
     <Compile Include="Assets\Script\Player\PlayerBasic.cs" />
-    <Compile Include="Assets\Script\MovingPlateform.cs" />
-    <Compile Include="Assets\Script\PlayerFeet.cs" />
-    <Compile Include="Assets\Script\Platform.cs" />
+    <Compile Include="Assets\Script\Manager\MovingPlateform.cs" />
+    <Compile Include="Assets\Script-Other\PlayerFeet.cs" />
+    <Compile Include="Assets\Script-Other\Platform.cs" />
     <Compile Include="Assets\Script-Other\PigBase1.cs" />
+    <Compile Include="Assets\Script\Manager\DoorManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

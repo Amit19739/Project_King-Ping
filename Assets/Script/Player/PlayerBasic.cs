@@ -57,7 +57,6 @@ public class PlayerBasic : MonoBehaviour
         }
 
         //Do attack and also play attack animation
-
         if(Time.time >= nextAttackTime)
         {
             if (Input.GetMouseButtonDown(0) && isGrounded() == true)
@@ -145,7 +144,6 @@ public class PlayerBasic : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             Debug.Log("we hit " + enemy.name);
-            //enemyBasicMovement.HammerAttackDirection();
             enemy.GetComponent<EnemyBasicMovement>().EnemyTakeDamage(20);
         } 
     }

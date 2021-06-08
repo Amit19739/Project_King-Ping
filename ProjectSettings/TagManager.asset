@@ -8,6 +8,8 @@ TagManager:
   - HealthPickUp
   - SmallHeart
   - Platform
+  - Door
+  - Key
   layers:
   - Default
   - TransparentFX

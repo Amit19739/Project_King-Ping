@@ -35,4 +35,9 @@ public class PlayerAnimation : MonoBehaviour
     {
         anim.SetBool("Death", true);
     }
+
+    public void OpenDoor()
+    {
+        anim.SetTrigger("DoorIn");
+    }
 }

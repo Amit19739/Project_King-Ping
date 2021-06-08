@@ -27,7 +27,7 @@ public class EnemyBasic : MonoBehaviour
 
     public LayerMask playerLayer;
 
-    //private bool playerOnTop;
+    private bool playerOnTop;
 
     void Start()
     {
@@ -62,25 +62,25 @@ public class EnemyBasic : MonoBehaviour
         }
 
         //check the player is on enemy or not if yes then take damage
-        //playerOnTop = Physics2D.OverlapCircle(playerDetection.position, circleRange, playerLayer);
-        //{
-        //    if (playerOnTop == true)
-        //    {
-        //        Debug.Log("Player on top");
-        //        EnemyTakeDamage(100);
-        //        playerOnTop = false;
-        //    }
-        //}
-
-        RaycastHit2D playerOnTop = Physics2D.Raycast(playerDetection.position, Vector2.up, 0.5f, playerLayer);
-        Debug.DrawRay(playerDetection.position, Vector2.up, Color.red);
+        playerOnTop = Physics2D.OverlapCircle(playerDetection.position, circleRange, playerLayer);
         {
-            if (playerOnTop.collider != null)
+            if (playerOnTop == true)
             {
                 Debug.Log("Player on top");
                 EnemyTakeDamage(100);
+                playerOnTop = false;
             }
         }
+
+        //RaycastHit2D playerOnTop = Physics2D.Raycast(playerDetection.position, Vector2.up, 0.5f, playerLayer);
+        //Debug.DrawRay(playerDetection.position, Vector2.up, Color.red);
+        //{
+        //    if (playerOnTop.collider != null)
+        //    {
+        //        Debug.Log("Player on top");
+        //        EnemyTakeDamage(100);
+        //    }
+        //}
 
 
 

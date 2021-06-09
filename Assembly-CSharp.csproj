@@ -61,25 +61,28 @@
   <ItemGroup>
     <Compile Include="Assets\Script-Other\EnemyBasicMovement_V1.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBasicMovement.cs" />
+    <Compile Include="Assets\Script\FieldOfView.cs" />
+    <Compile Include="Assets\Script\Enemy\CannonBall_Script.cs" />
     <Compile Include="Assets\Script\Manager\DoorManager.cs" />
     <Compile Include="Assets\Script-Other\Pig.cs" />
     <Compile Include="Assets\Script-Other\Player.cs" />
     <Compile Include="Assets\Script\Manager\GameUiManager.cs" />
     <Compile Include="Assets\Script\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Script\Enemy\Cannon_Fire.cs" />
     <Compile Include="Assets\Script-Other\Enemy.cs" />
     <Compile Include="Assets\Script-Other\PigBase.cs" />
     <Compile Include="Assets\Script\Manager\SceneController.cs" />
     <Compile Include="Assets\Script-Other\EnemyBasic.cs" />
+    <Compile Include="Assets\Script\Enemy\PigWithMatch_Script.cs" />
     <Compile Include="Assets\Script\Manager\HealthBar.cs" />
     <Compile Include="Assets\Script\Manager\PickUpIteams.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyFollow.cs" />
     <Compile Include="Assets\Script\Player\PlayerBasic.cs" />
     <Compile Include="Assets\Script\Manager\MovingPlateform.cs" />
     <Compile Include="Assets\Script-Other\PlayerFeet.cs" />
     <Compile Include="Assets\Script-Other\Platform.cs" />
     <Compile Include="Assets\Script-Other\PigBase1.cs" />
-    <Compile Include="Assets\Script\Enemy\EnemyFollow.cs" />
-    <Compile Include="Assets\Cannon_Fire.cs" />
-    <Compile Include="Assets\CannonBall_Script.cs" />
+    <Compile Include="Assets\Script\Fov_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

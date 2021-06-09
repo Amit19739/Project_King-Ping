@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
+    //private bool isPlayerInDoor;
+
+    public float distance;
+
     private Animator doorAnim;
 
     public SpriteRenderer spriteRendrer;
-
-    public float distance;
 
     PickUpIteams pickUpIteams;
     PlayerBasic playerScript;
@@ -18,16 +20,8 @@ public class DoorManager : MonoBehaviour
     {
         doorAnim = GetComponent<Animator>();
 
-        //spriteRendrer = GetComponentInChildren<SpriteRenderer>();
-
         pickUpIteams = FindObjectOfType<PickUpIteams>();
         playerScript = FindObjectOfType<PlayerBasic>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,8 +37,22 @@ public class DoorManager : MonoBehaviour
                 playerScript.HappenWhenDoorIn();
             }
         }
-        Debug.Log("Key No");
     }
+
+    public void OpenDoor()
+    {
+        doorAnim.SetTrigger("Opening Door");
+    }
+
+    //IEnumerator IsPlayerInDoor()
+    //{
+    //    isPlayerInDoor = true;
+    //    yield return new WaitForSeconds(1.2f);
+    //    GetComponent<SpriteRenderer>().sortingOrder = SortingLayer.layers
+    //    isPlayerInDoor = false;
+    //}
+
+
 
     //private void OnTriggerStay2D(Collider2D collision)
     //{
@@ -65,9 +73,4 @@ public class DoorManager : MonoBehaviour
     //        }
     //    }
     //}
-
-    public void OpenDoor()
-    {
-        doorAnim.SetTrigger("Opening Door");
-    }
 }

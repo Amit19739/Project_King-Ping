@@ -7,25 +7,38 @@ public class EnemyBasicMovement : MonoBehaviour
     [SerializeField] enum AttackDirection {left, right};
     [SerializeField] AttackDirection attackDirection;
 
+    [SerializeField] enum EnemyMode { attackMode, normalMode}
+    [SerializeField] EnemyMode enemyMode;
+
     [SerializeField] private float enemySpeed;
     [SerializeField] private float attackRange;
     [SerializeField] private float playerDetectionRange;
+    [SerializeField] private float followRange;
+    [SerializeField] private float stopingDistance;
+    private float nextAttackTime = 0f;
+
+    public float attackRate;
 
     private bool e_facingRight= true;
     private bool waitBeforeFlip = false;
     private bool playerOnTop;
+    private bool followPlayer = false;
 
     private Animator enemyAnimator;
 
 
     public Transform ledgewallDetection;
     public Transform playerDetection;
+    private Transform target;
 
     public LayerMask groundLayer;
     public LayerMask playerLayer;
+    public LayerMask whoIsPlayer;
 
     private int maxHealth = 100;
     private int currentHealth;
+
+    private bool b_PlayerIsHere;
 
     public HealthBar healthBar;
 
@@ -34,6 +47,8 @@ public class EnemyBasicMovement : MonoBehaviour
     void Start()
     {
         playerBasic = FindObjectOfType<PlayerBasic>();
+
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         enemyAnimator = GetComponentInChildren<Animator>();
 
@@ -84,8 +99,49 @@ public class EnemyBasicMovement : MonoBehaviour
                 playerOnTop = false;
             }
         }
-    }
 
+
+        //Check player is in range or not
+        RaycastHit2D playerIsHere = Physics2D.Raycast(ledgewallDetection.position, ledgewallDetection.right, 3f, whoIsPlayer);
+        Debug.DrawRay(ledgewallDetection.position, ledgewallDetection.right, Color.yellow);
+        {
+            if (playerIsHere.collider != null)
+            {
+                b_PlayerIsHere = true;
+                if (Vector2.Distance(transform.position, target.position) <= followRange)
+                {
+                    Debug.Log("In range");
+
+                    if (Time.time >= nextAttackTime)
+                    {
+                        EnemyAttack();
+                        enemyAnimator.SetTrigger("Attack");
+                        nextAttackTime = Time.time + 1f / attackRate;
+                    }
+
+                    
+                    if (Vector2.Distance(transform.position, target.position) > stopingDistance)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, target.position, enemySpeed * Time.deltaTime);
+                        Debug.Log("Player is here");
+                    }
+                }
+            }
+            else
+            {
+                b_PlayerIsHere = false;
+            }
+        }
+
+        if (followPlayer)
+        {
+            if (Vector2.Distance(transform.position, target.position) > stopingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position, enemySpeed * Time.deltaTime);
+                Debug.Log("Player is here");
+            }
+        }
+    }
 
     void EnemyAttack()
     {
@@ -100,8 +156,13 @@ public class EnemyBasicMovement : MonoBehaviour
 
     public void Flip()
     {
-        e_facingRight = !e_facingRight;
-        transform.Rotate(0, 180, 0);
+        if(b_PlayerIsHere == false)
+        {
+            e_facingRight = !e_facingRight;
+            transform.Rotate(0, 180, 0);
+        }
+        //e_facingRight = !e_facingRight;
+        //transform.Rotate(0, 180, 0);
     }
 
     public void EnemyTakeDamage(int damage)
@@ -163,5 +224,6 @@ public class EnemyBasicMovement : MonoBehaviour
     {
         Gizmos.DrawWireSphere(ledgewallDetection.position, attackRange);
         Gizmos.DrawWireSphere(playerDetection.position, playerDetectionRange);
+        Gizmos.DrawWireSphere(transform.position, followRange);
     }
 }

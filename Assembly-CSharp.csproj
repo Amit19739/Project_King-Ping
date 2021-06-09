@@ -77,6 +77,9 @@
     <Compile Include="Assets\Script-Other\PlayerFeet.cs" />
     <Compile Include="Assets\Script-Other\Platform.cs" />
     <Compile Include="Assets\Script-Other\PigBase1.cs" />
+    <Compile Include="Assets\Script\Enemy\EnemyFollow.cs" />
+    <Compile Include="Assets\Cannon_Fire.cs" />
+    <Compile Include="Assets\CannonBall_Script.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

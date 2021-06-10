@@ -5,18 +5,15 @@ using UnityEngine;
 public class EnemyBase_Script : MonoBehaviour
 {
     [SerializeField] private float enemyBaseSpeed;
-    [SerializeField] private float waitTimeBeforeFlip;
+    [SerializeField] private float playerDetectionRange;
 
     [SerializeField] private Animator enemyBaseAnim;
+    [SerializeField] private Transform ledgewallDetection;
 
     private bool e_facingRight = true;
-    private bool waitBeforeFlip = false;
-
-    public Transform ledgewallDetection;
 
     public LayerMask whatIsGround;
-
-
+    public LayerMask whoIsPlayer;
 
     void Start()
     {
@@ -26,26 +23,21 @@ public class EnemyBase_Script : MonoBehaviour
 
     void Update()
     {
-        if (enemyBaseAnim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-        {
-            return;
-        }
-
         EnemyBaseMove();
+        PlayerInRange();
     }
 
     void EnemyBaseMove()
     {
         transform.Translate(Vector2.right * enemyBaseSpeed * Time.deltaTime);
+        enemyBaseAnim.SetFloat("Running", enemyBaseSpeed);
 
-
+        //Check for Ledge
         RaycastHit2D groundInfo = Physics2D.Raycast(ledgewallDetection.position, Vector2.down, 1f, whatIsGround);
         Debug.DrawRay(ledgewallDetection.position, Vector2.down, Color.green);
         if (groundInfo.collider == null)
         {
-            Debug.Log("Ground Null");
-            enemyBaseAnim.SetTrigger("Idle");
-            StartCoroutine(WaitBeforeFlip());
+            Flip();
         }
 
         //check for walls
@@ -53,10 +45,24 @@ public class EnemyBase_Script : MonoBehaviour
         Debug.DrawRay(ledgewallDetection.position, ledgewallDetection.right, Color.red);
         if (wallsInfo.collider != null)
         {
-            Debug.Log("Wall Is Here");
-            enemyBaseAnim.SetTrigger("Idle");
-            StartCoroutine(WaitBeforeFlip());
+            Flip();
         }
+    }
+
+    void PlayerInRange()
+    {
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(transform.position, playerDetectionRange, whoIsPlayer);
+
+        foreach (Collider2D player in hitPlayer)
+        {
+            Debug.Log("Hey " + player.name);
+            Attack();
+        }
+    }
+
+    public void Attack()
+    {
+        Debug.Log("Attack!!!!!!!!!!!");
     }
 
     public void Flip()
@@ -65,11 +71,8 @@ public class EnemyBase_Script : MonoBehaviour
         transform.Rotate(0, 180, 0);
     }
 
-    IEnumerator WaitBeforeFlip()
+    private void OnDrawGizmos()
     {
-        waitBeforeFlip = true;
-        yield return new WaitForSeconds(waitTimeBeforeFlip);
-        Flip();
-        waitBeforeFlip = false;
+        Gizmos.DrawWireSphere(transform.position, playerDetectionRange);
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CannonBall_Script : MonoBehaviour
 {
-    public float speed = 20f;
-
-    public Rigidbody2D rb;
+    [SerializeField] private float speed = 20f;
+    [SerializeField] private Rigidbody2D rb;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
     }
 

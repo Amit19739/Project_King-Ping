@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PigWithMatch_Script : MonoBehaviour
 {
-    private float nextAttackTime = 0f;
+    [SerializeField] private Animator pigwithatchAnim;
 
+    private float nextAttackTime = 0f;
     public float detectionRange;
     public float attackRate;
 
     public LayerMask whoIsPlayer;
-    public Animator pigwithatchAnim;
 
     public Cannon_Fire cannon_Fire;
+
+    private void Start()
+    {
+        pigwithatchAnim = GetComponentInChildren<Animator>();
+    }
 
 
     void Update()
@@ -36,7 +41,7 @@ public class PigWithMatch_Script : MonoBehaviour
             if (Time.time >= nextAttackTime)
             {
                 FireCannon();
-                cannon_Fire.CannonReadyFire();
+                cannon_Fire.ShootCannon();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }

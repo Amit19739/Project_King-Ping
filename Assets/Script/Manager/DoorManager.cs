@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorManager : MonoBehaviour
 {
-    //private bool isPlayerInDoor;
-
     public float distance;
 
     private Animator doorAnim;
@@ -36,6 +35,12 @@ public class DoorManager : MonoBehaviour
                 playerScript.transform.position = transform.Find("DoorPositionFinder").position;
                 playerScript.HappenWhenDoorIn();
             }
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            SceneManager.LoadScene("Level_1");
+            Debug.Log("Next Level");
         }
     }
 

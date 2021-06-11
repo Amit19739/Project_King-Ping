@@ -7,25 +7,13 @@ public class Cannon_Fire : MonoBehaviour
     public Transform firePoint;
     public GameObject cannonBallPrefab;
     public Animator cannonAnim;
-    public float speed = 10f;
+    public float speed;
+
 
     public void ShootCannon()
     {
-        //Instantiate(cannonBallPrefab, firePoint.position, firePoint.rotation);
-        //cannonAnim.SetTrigger("Shoot");
-
-        GameObject CreatedCannonball = Instantiate(cannonBallPrefab, firePoint.position, firePoint.rotation);
-        CreatedCannonball.GetComponent<Rigidbody>().velocity = firePoint.transform.right * speed;
+        GameObject newCannonball = Instantiate(cannonBallPrefab, firePoint.position, firePoint.rotation);
+        newCannonball.GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+        cannonAnim.SetTrigger("Shoot");
     }
-
-    //IEnumerator WaitBeforeFireCannon()
-    //{
-    //    yield return new WaitForSeconds(0.4f);
-    //    ShootCannon();
-    //}
-
-    //public void CannonReadyFire()
-    //{
-    //    StartCoroutine(WaitBeforeFireCannon());
-    //}
 }

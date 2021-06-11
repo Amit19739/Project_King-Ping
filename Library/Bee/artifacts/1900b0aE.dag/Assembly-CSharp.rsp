@@ -336,8 +336,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/DrawProjectionLine.cs"
-"Assets/ProjectileShoot.cs"
+"Assets/HitBoxFireCannon.cs"
+"Assets/Script-Other/Cannon_Fire1.cs"
 "Assets/Script-Other/Enemy.cs"
 "Assets/Script-Other/EnemyBasic.cs"
 "Assets/Script-Other/EnemyBasicMovement_V1.cs"
@@ -345,9 +345,11 @@
 "Assets/Script-Other/Pig.cs"
 "Assets/Script-Other/PigBase.cs"
 "Assets/Script-Other/PigBase1.cs"
+"Assets/Script-Other/PigWithMatch_Script1.cs"
 "Assets/Script-Other/Platform.cs"
 "Assets/Script-Other/Player.cs"
 "Assets/Script-Other/PlayerFeet.cs"
+"Assets/Script/DrawProjectionLine.cs"
 "Assets/Script/Enemy/CannonBall_Script.cs"
 "Assets/Script/Enemy/Cannon_Fire.cs"
 "Assets/Script/Enemy/EnemyBase_Script.cs"
@@ -364,6 +366,7 @@
 "Assets/Script/Manager/SceneController.cs"
 "Assets/Script/Player/PlayerAnimation.cs"
 "Assets/Script/Player/PlayerBasic.cs"
+"Assets/Script/ProjectileShoot.cs"
 -langversion:8.0
 
 /deterministic

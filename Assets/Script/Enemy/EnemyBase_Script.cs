@@ -11,9 +11,19 @@ public class EnemyBase_Script : MonoBehaviour
     [SerializeField] private Transform ledgewallDetection;
 
     private bool e_facingRight = true;
+    private bool e_playerIsHere;
 
     public LayerMask whatIsGround;
     public LayerMask whoIsPlayer;
+
+    public Transform throwPoint;
+    public GameObject bombPrefab;
+    public float speed;
+
+
+    private float nextAttackTime = 0f;
+    public float attackRate;
+
 
     void Start()
     {
@@ -55,14 +65,35 @@ public class EnemyBase_Script : MonoBehaviour
 
         foreach (Collider2D player in hitPlayer)
         {
+
             Debug.Log("Hey " + player.name);
-            Attack();
+
+            e_playerIsHere = true;
+            if (e_playerIsHere)
+            {
+                enemyBaseSpeed = 0;
+            }
+            else
+            {
+                enemyBaseSpeed = 1.5f;
+            }
+
+
+            //if (Time.time >= nextAttackTime)
+            //{
+            //    Debug.Log("Now attack Time");
+            //    Attack();
+            //    nextAttackTime = Time.time + 1f / attackRate;
+            //}
         }
     }
 
     public void Attack()
     {
         Debug.Log("Attack!!!!!!!!!!!");
+        GameObject newbomb = Instantiate(bombPrefab, throwPoint.position, throwPoint.rotation);
+        newbomb.GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+        enemyBaseAnim.SetTrigger("Attack");
     }
 
     public void Flip()

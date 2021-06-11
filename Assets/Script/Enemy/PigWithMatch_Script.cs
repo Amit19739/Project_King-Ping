@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PigWithMatch_Script : MonoBehaviour
 {
-    [SerializeField] private Animator pigwithatchAnim;
+    [SerializeField] private Animator pigWithMatchAnim;
 
     private float nextAttackTime = 0f;
     public float detectionRange;
@@ -16,7 +16,7 @@ public class PigWithMatch_Script : MonoBehaviour
 
     private void Start()
     {
-        pigwithatchAnim = GetComponentInChildren<Animator>();
+        pigWithMatchAnim = GetComponentInChildren<Animator>();
     }
 
 
@@ -25,10 +25,6 @@ public class PigWithMatch_Script : MonoBehaviour
         PlayerInRange();
     }
 
-    public void FireCannon()
-    {
-        pigwithatchAnim.SetTrigger("FireCannon");
-    }
 
     void PlayerInRange()
     {
@@ -37,14 +33,18 @@ public class PigWithMatch_Script : MonoBehaviour
         foreach (Collider2D player in hitPlayer)
         {
             Debug.Log("Hey " + player.name);
-
             if (Time.time >= nextAttackTime)
             {
-                FireCannon();
+                FireCannon();           
                 cannon_Fire.ShootCannon();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }
+    }
+
+    public void FireCannon()
+    {
+        pigWithMatchAnim.SetTrigger("FireCannon");
     }
 
     private void OnDrawGizmos()

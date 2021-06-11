@@ -68,16 +68,21 @@
     <Compile Include="Assets\Script-Other\Player.cs" />
     <Compile Include="Assets\Script\Manager\GameUiManager.cs" />
     <Compile Include="Assets\Script\Player\PlayerAnimation.cs" />
+    <Compile Include="Assets\Script-Other\PigWithMatch_Script1.cs" />
     <Compile Include="Assets\Script\Enemy\Cannon_Fire.cs" />
+    <Compile Include="Assets\HitBoxFireCannon.cs" />
     <Compile Include="Assets\Script-Other\Enemy.cs" />
     <Compile Include="Assets\Script-Other\PigBase.cs" />
     <Compile Include="Assets\Script\Manager\SceneController.cs" />
     <Compile Include="Assets\Script-Other\EnemyBasic.cs" />
     <Compile Include="Assets\Script\Enemy\PigWithMatch_Script.cs" />
     <Compile Include="Assets\Script\Enemy\PigWithBomb_Script.cs" />
+    <Compile Include="Assets\Script\DrawProjectionLine.cs" />
+    <Compile Include="Assets\Script-Other\Cannon_Fire1.cs" />
     <Compile Include="Assets\Script\Manager\HealthBar.cs" />
     <Compile Include="Assets\Script\Manager\PickUpIteams.cs" />
     <Compile Include="Assets\Script-Other\EnemyFollow.cs" />
+    <Compile Include="Assets\Script\ProjectileShoot.cs" />
     <Compile Include="Assets\Script\Player\PlayerBasic.cs" />
     <Compile Include="Assets\Script\Manager\MovingPlateform.cs" />
     <Compile Include="Assets\Script-Other\PlayerFeet.cs" />
@@ -85,8 +90,6 @@
     <Compile Include="Assets\Script\Enemy\EnemyBase_Script.cs" />
     <Compile Include="Assets\Script\Fov_Test.cs" />
     <Compile Include="Assets\Script-Other\PigBase1.cs" />
-    <Compile Include="Assets\DrawProjectionLine.cs" />
-    <Compile Include="Assets\ProjectileShoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

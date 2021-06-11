@@ -349,6 +349,7 @@
 "Assets/Script-Other/Platform.cs"
 "Assets/Script-Other/Player.cs"
 "Assets/Script-Other/PlayerFeet.cs"
+"Assets/Script/CameraFollow.cs"
 "Assets/Script/DrawProjectionLine.cs"
 "Assets/Script/Enemy/CannonBall_Script.cs"
 "Assets/Script/Enemy/Cannon_Fire.cs"

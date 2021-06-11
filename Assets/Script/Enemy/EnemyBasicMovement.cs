@@ -150,7 +150,7 @@ public class EnemyBasicMovement : MonoBehaviour
         foreach (Collider2D player in hitPlayer)
         {
             Debug.Log("we hit " + player.name);
-            player.GetComponent<PlayerBasic>().TakeDamage(20);
+            player.GetComponent<PlayerBasic>().TakeDamage(50);
         }
     }
 

@@ -57,6 +57,15 @@ public class EnemyBase_Script : MonoBehaviour
         {
             Flip();
         }
+
+        if (e_playerIsHere)
+        {
+            enemyBaseSpeed = 0;
+        }
+        else
+        {
+            enemyBaseSpeed = 1.5f;
+        }
     }
 
     void PlayerInRange()
@@ -68,16 +77,15 @@ public class EnemyBase_Script : MonoBehaviour
 
             Debug.Log("Hey " + player.name);
 
-            e_playerIsHere = true;
-            if (e_playerIsHere)
-            {
-                enemyBaseSpeed = 0;
-            }
-            else
-            {
-                enemyBaseSpeed = 1.5f;
-            }
-
+            //e_playerIsHere = true;
+            //if (e_playerIsHere)
+            //{
+            //    enemyBaseSpeed = 0;
+            //}
+            //else
+            //{
+            //    enemyBaseSpeed = 1.5f;
+            //}
 
             //if (Time.time >= nextAttackTime)
             //{

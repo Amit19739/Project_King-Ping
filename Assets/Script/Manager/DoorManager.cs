@@ -39,7 +39,7 @@ public class DoorManager : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Level_1");
+            //SceneManager.LoadScene("Level_1");
             Debug.Log("Next Level");
         }
     }

@@ -66,12 +66,13 @@
     <Compile Include="Assets\Script\Manager\DoorManager.cs" />
     <Compile Include="Assets\Script-Other\Pig.cs" />
     <Compile Include="Assets\Script-Other\Player.cs" />
+    <Compile Include="Assets\Script-Other\EnemyBase_Script1.cs" />
     <Compile Include="Assets\Script\Manager\GameUiManager.cs" />
     <Compile Include="Assets\Script\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Script-Other\PigWithMatch_Script1.cs" />
     <Compile Include="Assets\Script\Enemy\Cannon_Fire.cs" />
     <Compile Include="Assets\Script\CameraFollow.cs" />
-    <Compile Include="Assets\HitBoxFireCannon.cs" />
+    <Compile Include="Assets\Script-Other\HitBoxFireCannon.cs" />
     <Compile Include="Assets\Script-Other\Enemy.cs" />
     <Compile Include="Assets\Script-Other\PigBase.cs" />
     <Compile Include="Assets\Script\Manager\SceneController.cs" />

@@ -34,11 +34,13 @@ public class PlayerBasic : MonoBehaviour
 
     GameUiManager gameUiManager;
     EnemyBasicMovement enemyBasicMovement;
+    PigWithMatch_Script pigWithMatch_Script;
 
     void Start()
     {
         gameUiManager = FindObjectOfType<GameUiManager>();
         enemyBasicMovement = FindObjectOfType<EnemyBasicMovement>();
+        pigWithMatch_Script = FindObjectOfType<PigWithMatch_Script>();
 
         rb2d = GetComponent<Rigidbody2D>();
         playerAnim = GetComponent<PlayerAnimation>();

@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\FieldOfViewEditor.cs" />
+    <Compile Include="Assets\Editor\FovE_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

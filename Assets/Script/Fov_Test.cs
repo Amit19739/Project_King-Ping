@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Fov_Test : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float viewRadius;
+    [Range(0,360)]
+    public float viewAngle;
 
-    // Update is called once per frame
-    void Update()
+    public Vector3 DirFromAngle(float angleInDagrees, bool angleIsGlobal)
     {
-        
+        if (!angleIsGlobal)
+        {
+            angleInDagrees += transform.eulerAngles.y;
+        }
+        return new Vector3(Mathf.Sin(angleInDagrees * Mathf.Deg2Rad), Mathf.Cos(angleInDagrees * Mathf.Deg2Rad), 0);
     }
 }

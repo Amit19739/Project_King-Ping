@@ -14,8 +14,13 @@ public class PigWithMatch_Script : MonoBehaviour
 
     public Cannon_Fire cannon_Fire;
 
+    private int maxHealth = 100;
+    private int currentHealt;
+
     private void Start()
     {
+        currentHealt = maxHealth;
+
         pigWithMatchAnim = GetComponentInChildren<Animator>();
     }
 
@@ -42,6 +47,13 @@ public class PigWithMatch_Script : MonoBehaviour
         }
     }
 
+    public void EnemyTakeDamage(int damage)
+    {
+        currentHealt -= damage;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        GetComponent<BoxCollider2D>().enabled = false;
+    }
+
     public void FireCannon()
     {
         pigWithMatchAnim.SetTrigger("FireCannon");
@@ -49,7 +61,7 @@ public class PigWithMatch_Script : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, detectionRange);     
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
 
 
